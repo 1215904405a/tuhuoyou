@@ -1,0 +1,17 @@
+{
+  "name": "rolluptest",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "src/index.js",
+  "scripts": {
+    "rollup": "rollup -c",
+    "webpack": "webpack"
+  },
+  "repository": "https://github.com/1215904405a/rollup.git",
+  "author": "wangyong <wangyong@qding.me>",
+  "license": "MIT",
+  "devDependencies": {
+    "rollup": "^0.52.0",
+    "webpack": "^3.9.1"
+  }
+}
