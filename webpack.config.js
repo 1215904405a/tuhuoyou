@@ -1,15 +1,33 @@
 const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  // devtool: "source-map",
-  entry: "./src/app.js",
+  entry: {
+    index: './src/index.js'
+  },
   output: {
-    path: __dirname + "/dist",
-    filename: "webpack.app.js"
+    path: path.join(__dirname, 'dist'),
+    publicPath: './',
+    filename: '[name].bundle.js?[hash:8]'
   },
   plugins: [
-    // new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
-    // new webpack.optimize.ModuleConcatenationPlugin(), //作用域提升（模块代码放一起）
-    new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('development') })
-  ]
-}
+    new HtmlWebpackPlugin({ title: 'tohuoyou', template: './index.html' }),
+  ],
+  module: {
+    rules: [{
+      test: /\.js?$/,
+      exclude: /(node_modules)/,
+      loader: 'babel-loader',
+      query: {
+        cacheDirectory: true,
+      }
+    }]
+  },
+  resolve: {
+    extensions: ['.js', 'json', '.jsx'],
+  },
+  optimization: { //优化
+    minimize: false //压缩
+  }
+};
