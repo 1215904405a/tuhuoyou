@@ -8,6 +8,7 @@ const nunjucks = require('nunjucks');
 const parser = require('koa-body');
 const session = require('koa-session');
 const send = require('koa-send');
+const config = require('./config');
 
 // init koa
 const app = module.exports = new Koa();
@@ -19,7 +20,7 @@ app.use(async (ctx, next) => {
   console.log(agent);
   await next();
 });
-const port = 8008;
+const port = config.port;
 app.listen(port, function() {
   let decorator = new Array(40).fill('*').join('');
   console.info(colors.cyan(decorator));
