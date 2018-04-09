@@ -20,6 +20,11 @@ app.use(async (ctx, next) => {
   console.log(agent);
   await next();
 });
+
+app.use(async (ctx) => {
+  ctx.body = 'hello 敬请期待web前端demo平台  有梦想就要去走下去！'
+});
+
 const port = config.port;
 app.listen(port, function() {
   let decorator = new Array(40).fill('*').join('');
