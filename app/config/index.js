@@ -16,7 +16,7 @@ module.exports = {
 
   whost: conf.whost || 'https://api.qdingnet.com',
 
-  cluster: conf.cluster || 2,
+  cluster: conf.cluster || 1,
 
   // view folder
   views: 'templates',
