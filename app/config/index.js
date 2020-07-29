@@ -35,4 +35,6 @@ module.exports = {
 
   // log file
   logger: '/data/logs/mobile-sh/20',
+
+  startMode: conf.startMode
 };

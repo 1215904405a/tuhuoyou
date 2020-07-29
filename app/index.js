@@ -17,30 +17,43 @@ const app = module.exports = new Koa();
 const port = config.port;
 
 // 加载ejs模板
-app.use(views(__dirname+'/views', { extension: 'ejs' }));
-
-router.get('/', async (ctx) => {
-    let title = 'hi you';
-    let arr = ['今天', '明天', '将来'];
-    await ctx.render('index', {
-       title: title,
-       arr: arr
-    })
-  })
+app.use(views(__dirname+'/template', { extension: 'ejs' }));
 
 // 识别内嵌浏览器
 app.use(async (ctx, next) => {
   let agent = (ctx.headers['user-agent'] || '').toLowerCase();
-  console.log('1212121212');
+  console.log('获取浏览器信息');
   console.log(agent);
   await next();
 });
 
-// app.use(async (ctx) => {
-//   ctx.body = 'hello 敬请期待web前端demo平台  有梦想就要去走下去！'
-// });
+// 返回静态资源
+app.use(async(ctx, next) => {
+    if (ctx.path.startsWith('/assets/')) {
+      return await send(ctx, ctx.path, {
+        root: './',
+        maxage: 365 * 24 * 60 * 60,
+      });
+    }
+    await next();
+});
 
-app.use(router.routes())//启动路由
+// parse form
+app.use(parser({
+    strict: false,
+    jsonLimit: 1024 * 1024 * 2, // 2MB
+    formLimit: 1024 * 1024 * 2, // 2MB
+    textLimit: 1024 * 1024 * 2, // 2MB
+    multipart: true,
+    formidable: {
+      uploadDir: path.join(__dirname, '../upload'),
+    }
+  }));
+
+
+const rt = require('./router/home'); // 多了可以脚本加载扩展
+
+app.use(rt.routes())//启动路由
 app.use(router.allowedMethods()) 
 
 app.listen(port, function() {

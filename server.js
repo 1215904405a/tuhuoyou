@@ -1,17 +1,23 @@
-var fs = require('fs');
-var cluster = require('cluster');
-var config = require('./app/config');
-var child_process = require('child_process');
+const fs = require('fs');
+const cluster = require('cluster');
+const config = require('./app/config');
+const child_process = require('child_process');
 
-var start = Date.now();
+const start = Date.now();
 
 // 热重启处理
-var startMode = config.startMode;
+let env = '';
+process.argv.forEach((item) => {
+  if (item.match(/--env=\w*/)) {
+    env = item.split('=')[1];
+  }
+});
 
 // 正式环境先安装依赖 方便运维部署
-if (startMode === 'deploy') {
+console.log(env);
+if (env === 'prod') {
   child_process.execSync('yarn add colors@1.4.0', { stdio: ['pipe'] });
-  var colors = require('colors/safe');
+  const colors = require('colors/safe');
 
   // 停止所有进程
   try {
@@ -45,7 +51,7 @@ if (startMode === 'deploy') {
   });
 
   // 正式环境采用PM2管理进程
-  child_process.execSync('NODE_ENV=production pm2 start app/index.js --name=app -o /dev/null -e /dev/null -i ' + config.cluster, {
+  child_process.execSync('NODE_ENV=production pm2 start app/index.js --name=you -o /dev/null -e /dev/null -i ' + config.cluster, {
     stdio: 'inherit',
   });
 
