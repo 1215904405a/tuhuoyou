@@ -1,11 +1,20 @@
 const router = require('koa-router')();
 
-// 模板
-router.get('/home', async (ctx) => {
+// 首页模板
+router.get('/', async (ctx) => {
     let title = 'hi you';
-    let arr = ['今天', '明天', '将来'];
+    let arr = [{
+        name: 'react-typescript',
+        link: '/reacttypescript'
+    }, {
+        name: 'css',
+        link: '/css'
+    }, {
+        name: 'brower',
+        link: '/brower'
+    }];
     await ctx.render('home/index', {
-       title: title,
+    //    title: title,
        arr: arr
     })
 })

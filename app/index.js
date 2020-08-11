@@ -40,7 +40,7 @@ app.use(async(ctx, next) => {
 
 // parse form
 app.use(parser({
-    strict: false,
+    // strict: false,
     jsonLimit: 1024 * 1024 * 2, // 2MB
     formLimit: 1024 * 1024 * 2, // 2MB
     textLimit: 1024 * 1024 * 2, // 2MB
