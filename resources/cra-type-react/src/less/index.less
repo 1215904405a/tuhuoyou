@@ -1,0 +1,49 @@
+@import "./base/rem.less";
+@import "./base/normalize.css";
+@import "./base/color.less";
+@import "./widgets/animate.less";
+
+html, body, :global(#app){
+  height: 100%;
+  width: 100%;
+  font-size: 14px;
+  min-width: 1200px;
+  font-family: Microsoft YaHei, SourceHanSansCN-Normal-Alphabetic,Roboto-Regular,Microsoft YaHei,SimSun,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+:global(#app), .layout {
+  background:rgba(237,240,243,1);
+}
+a {
+  color:rgba(89,141,247,1);
+}
+:global(.loading) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5%;
+  background-color: #fff;
+}
+ul,li{ padding:0;margin:0;list-style:none}
+
+.text-center {
+  text-align: center;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+.normal-color {
+  color: @textColorDark;
+}
+
+// 404
+.no-match {
+    
+}
