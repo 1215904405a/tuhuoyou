@@ -3,47 +3,73 @@
 @import "./base/color.less";
 @import "./widgets/animate.less";
 
-html, body, :global(#app){
-  height: 100%;
-  width: 100%;
-  font-size: 14px;
-  min-width: 1200px;
-  font-family: Microsoft YaHei, SourceHanSansCN-Normal-Alphabetic,Roboto-Regular,Microsoft YaHei,SimSun,Helvetica Neue,Helvetica,Arial,sans-serif;
+html,
+body,
+#root {
+    color: #333;
+    height: 100%;
+    width: 100%;
+    min-width: 1200px;
+    font-family: Microsoft YaHei, SourceHanSansCN-Normal-Alphabetic, Roboto-Regular, Microsoft YaHei, SimSun, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
-:global(#app), .layout {
-  background:rgba(237,240,243,1);
+
+#root {
+    background: rgba(237, 240, 243, 1);
 }
+
 a {
-  color:rgba(89,141,247,1);
+    color: rgba(89, 141, 247, 1);
 }
-:global(.loading) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5%;
-  background-color: #fff;
+
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+    background-color: #fff;
 }
-ul,li{ padding:0;margin:0;list-style:none}
+
+ul,
+li {
+    padding: 0;
+    margin: 0;
+    list-style: none
+}
 
 .text-center {
-  text-align: center;
+    text-align: center;
 }
 
 .pointer {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .ellipsis {
-  overflow: hidden;
-  text-overflow:ellipsis;
-  white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .normal-color {
-  color: @textColorDark;
+    color: @textColorDark;
 }
 
-// 404
+.p10 {
+    padding: 10px;
+}
+
+.p20 {
+    padding: 20px;
+}
+
+/* 404 */
 .no-match {
-    
+    padding-top: 5%;
+}
+
+/* header */
+.site-page-header {
+    padding: 30px;
+    font-size: 1.2rem;
+    border: 1px solid rgb(235, 237, 240);
 }

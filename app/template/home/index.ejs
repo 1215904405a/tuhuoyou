@@ -1,9 +1,9 @@
 <%- include('../public/header.ejs') -%>
 <!-- <h1>ejs的模板测试</h1> -->
 <ul>
-   <% for(var i=0; i<arr.length; i++){ %>
-     <li class="v-mg15 font16">
-         <a href=""><%= arr[i].name %></a>
+    <% for(var i=0; i<arr.length; i++){ %>
+    <li class="v-mg15 font16">
+        <a href="<%= arr[i].link %>"><%= arr[i].name %></a>
     </li>
     <% }%>
 </ul>

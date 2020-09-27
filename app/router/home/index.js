@@ -4,8 +4,8 @@ const router = require('koa-router')();
 router.get('/', async (ctx) => {
     let title = 'hi you';
     let arr = [{
-        name: 'react-typescript',
-        link: '/reacttypescript'
+        name: 'react',
+        link: '/react/#/reactlazy'
     }, {
         name: 'css',
         link: '/css'
@@ -14,8 +14,8 @@ router.get('/', async (ctx) => {
         link: '/brower'
     }];
     await ctx.render('home/index', {
-    //    title: title,
-       arr: arr
+        //    title: title,
+        arr: arr
     })
 })
 
