@@ -7,11 +7,14 @@ router.get('/', async (ctx) => {
         name: 'react',
         link: '/react/#/reactlazy'
     }, {
+        name: 'node基础框架koa服务配置ssl',
+        link: '/react/#nodessl'
+    }, {
         name: 'css',
-        link: '/css'
+        link: '/'
     }, {
         name: 'brower',
-        link: '/brower'
+        link: '/'
     }];
     await ctx.render('home/index', {
         //    title: title,
