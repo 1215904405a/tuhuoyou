@@ -4,11 +4,14 @@ const router = require('koa-router')();
 router.get('/', async (ctx) => {
     let title = 'hi you';
     let arr = [{
-        name: 'react',
+        name: 'react-lazy',
         link: '/react/#/reactlazy'
     }, {
         name: 'node基础框架koa服务配置ssl',
         link: '/react/#nodessl'
+    }, {
+        name: 'react-context',
+        link: '/react/#reactcontext'
     }, {
         name: 'css',
         link: '/'

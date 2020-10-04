@@ -11,7 +11,14 @@ const ReactLazy = loadable(
 );
 
 const NodeSsl = loadable(
-    () => import(/* webpackChunkName: "reactlazy" */ 'src/modules/node-ssl'),
+    () => import(/* webpackChunkName: "nodessl" */ 'src/modules/node-ssl'),
+    {
+        fallback: <Loading />
+    }
+);
+
+const ReactContext = loadable(
+    () => import(/* webpackChunkName: "reactcontext" */ 'src/modules/react-context'),
     {
         fallback: <Loading />
     }
@@ -20,6 +27,7 @@ const NodeSsl = loadable(
 const routes = [
     { path: '/reactlazy', component: ReactLazy, exact: true },
     { path: '/nodessl', component: NodeSsl, exact: true },
+    { path: '/reactcontext', component: ReactContext, exact: true },
 ];
 
 export default routes;
