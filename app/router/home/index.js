@@ -13,6 +13,9 @@ router.get('/', async (ctx) => {
         name: 'react-context',
         link: '/react/#reactcontext'
     }, {
+        name: 'commonjs',
+        link: '/react/#commonjs'
+    }, {
         name: 'css',
         link: '/'
     }, {

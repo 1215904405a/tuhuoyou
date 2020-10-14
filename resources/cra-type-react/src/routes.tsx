@@ -24,10 +24,18 @@ const ReactContext = loadable(
     }
 );
 
+const Commonjs = loadable(
+    () => import(/* webpackChunkName: "commonjs" */ 'src/modules/common-js'),
+    {
+        fallback: <Loading />
+    }
+);
+
 const routes = [
     { path: '/reactlazy', component: ReactLazy, exact: true },
     { path: '/nodessl', component: NodeSsl, exact: true },
     { path: '/reactcontext', component: ReactContext, exact: true },
+    { path: '/commonjs', component: Commonjs, exact: true },
 ];
 
 export default routes;

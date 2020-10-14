@@ -38,6 +38,11 @@ if (env === 'prod') {
     }
 
     if (fs.existsSync('./resources/cra-type-react')) {
+        console.info(colors.cyan('前台:安装cra-type-react工程依赖包'));
+        child_process.execSync('yarn install', {
+            stdio: 'inherit',
+            cwd: './resources/cra-type-react',
+        });
         console.info(colors.green('前台:开始构建cra-type-react工程'));
         child_process.execSync('yarn build', {
             stdio: 'inherit',
