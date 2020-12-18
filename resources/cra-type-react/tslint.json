@@ -65,7 +65,7 @@
         "max-classes-per-file": [true, 1],
         "max-file-line-count": [true, 500],
         "max-line-length": [true, 120],
-        "no-default-export": true,
+        "no-default-export": false,
         "no-duplicate-imports": true,
 
         "align": [true, "parameters", "arguments", "statements", "members", "elements"],
@@ -84,7 +84,7 @@
             "ignore-jsdoc"
         ],
         "no-unnecessary-initializer": true,
-        "variable-name": [true, "check-format",
+        "variable-name": [true,
             "allow-leading-underscore",
             "allow-trailing-underscore",
             "ban-keywords"

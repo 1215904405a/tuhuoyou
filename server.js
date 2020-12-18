@@ -55,8 +55,8 @@ if (env === 'prod') {
         stdio: 'inherit',
     });
 
-    // 正式环境采用PM2管理进程
-    child_process.execSync('NODE_ENV=production pm2 start app/index.js --name=you -o /dev/null -e /dev/null -i ' + config.cluster, {
+    // 正式环境采用PM2管理进程 参考：https://pm2.keymetrics.io/docs/usage/quick-start/ -o /logs/out.log 正常日志   -e /logs/err.log 错误日志
+    child_process.execSync('NODE_ENV=production pm2 start app/index.js --name=you -o /users/logs/out.log -e /users/logs/err.log -i ' + config.cluster + ' --watch', {
         stdio: 'inherit',
     });
 

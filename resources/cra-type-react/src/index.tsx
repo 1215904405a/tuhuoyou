@@ -5,17 +5,20 @@ import { createStore } from 'redux';
 import App from './App';
 import reducer from './reducer';
 import * as serviceWorker from './serviceWorker';
+// import { getComponents } from 'src/page/main'
 import 'src/less/index.less';
+
+// getComponents()
 
 // 1、创建 store
 const store = createStore(reducer);
 
 ReactDOM.render(
     <React.StrictMode>
-        <Provider store={ store }>
+        <Provider store={store}>
             <App />
         </Provider>
-    </React.StrictMode> ,
+    </React.StrictMode>,
     document.getElementById('root') as HTMLElement
 );
 

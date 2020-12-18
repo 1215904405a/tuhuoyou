@@ -4,17 +4,17 @@ const router = require('koa-router')();
 router.get('/', async (ctx) => {
     let title = 'hi you';
     let arr = [{
-        name: 'react-lazy',
-        link: '/react/#/reactlazy'
+        name: 'react相关',
+        link: '/cra1/#/react'
     }, {
         name: 'node基础框架koa服务配置ssl',
-        link: '/react/#nodessl'
-    }, {
-        name: 'react-context',
-        link: '/react/#reactcontext'
+        link: '/cra1/#nodessl'
     }, {
         name: 'commonjs',
-        link: '/react/#commonjs'
+        link: '/cra1/#commonjs'
+    }, {
+        name: 'pm2',
+        link: '/cra1/#pm2'
     }, {
         name: 'css',
         link: '/'
@@ -35,5 +35,26 @@ router.get('/api/home', async (ctx) => {
         test: 'wy'
     }
 })
+const obj = {
+    '张杰': '还未开始',
+    '周林': '还未开始',
+    '王永': '还未开始'
+};
+// 抽检
+router.get('/api/luckdraw', async (ctx) => {
+    console.log(ctx.request.query.name);
+    console.log(ctx.request.query.num);
+    if (!obj[ctx.request.query.name]) {
+        ctx.body = { message: '姓名不在抽检范围', obj }
+        return;
+    }
+    if (obj[ctx.request.query.name] !== '还未开始') {
+        ctx.body = { message: '已经抽签', obj }
+        return;
+    }
+    obj[ctx.request.query.name] = ctx.request.query.num;
+    ctx.body = obj
+})
+
 
 module.exports = router;

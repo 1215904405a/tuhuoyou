@@ -3,8 +3,8 @@ import React from 'react';
 import loadable from '@loadable/component';
 import Loading from 'src/components/loading';
 
-const ReactLazy = loadable(
-    () => import(/* webpackChunkName: "reactlazy" */ 'src/modules/react-lazy'),
+const ReactCom = loadable(
+    () => import(/* webpackChunkName: "reactlazy" */ 'src/modules/react'),
     {
         fallback: <Loading />
     }
@@ -17,12 +17,6 @@ const NodeSsl = loadable(
     }
 );
 
-const ReactContext = loadable(
-    () => import(/* webpackChunkName: "reactcontext" */ 'src/modules/react-context'),
-    {
-        fallback: <Loading />
-    }
-);
 
 const Commonjs = loadable(
     () => import(/* webpackChunkName: "commonjs" */ 'src/modules/common-js'),
@@ -31,11 +25,27 @@ const Commonjs = loadable(
     }
 );
 
+const Pm2 = loadable(
+    () => import(/* webpackChunkName: "commonjs" */ 'src/modules/pm2'),
+    {
+        fallback: <Loading />
+    }
+);
+
+const LuckDraw = loadable(
+    () => import(/* webpackChunkName: "luckdraw" */ 'src/modules/luckdraw'),
+    {
+        fallback: <Loading />
+    }
+);
+
 const routes = [
-    { path: '/reactlazy', component: ReactLazy, exact: true },
+    { path: '/react', component: ReactCom },
     { path: '/nodessl', component: NodeSsl, exact: true },
-    { path: '/reactcontext', component: ReactContext, exact: true },
+    // { path: '/reactcontext', component: ReactContext, exact: true },
     { path: '/commonjs', component: Commonjs, exact: true },
+    { path: '/pm2', component: Pm2, exact: true },
+    { path: '/luckdraw', component: LuckDraw, exact: true },
 ];
 
 export default routes;
