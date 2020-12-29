@@ -1,14 +1,18 @@
 import React from 'react';
 
+// 创建类型接口 尽量公用
+export interface IName {
+    value: string
+}
 let rel = [];
 const getNum = function (): number {
     const num = parseInt((Math.random() * 10) + '', 10) + 1;
-    const name = document.getElementById('name');
-    if (!name.value) {
+    const name: HTMLElement = document.getElementById('name') as HTMLElement;
+    if (!name['value']) {
         alert('请输入对应姓名');
-        return;
+        return 0;
     }
-    fetch('/api/luckdraw?name=' + name.value + '&num=' + num).then((res) => {
+    fetch('/api/luckdraw?name=' + name['value'] + '&num=' + num).then((res) => {
         return res.json();
 
     }).then((res) => {
@@ -31,14 +35,14 @@ const getNum = function (): number {
         const str = rel.map((item) => {
             return `<p>${item.name}: ${item.num}</p>`;
         })
-        document.getElementById('result').innerHTML = '';
-        document.getElementById('result').innerHTML = '结果：' + str;
+        const result: HTMLElement = document.getElementById('result') as HTMLElement;
+        result.innerHTML = '';
+        result.innerHTML = '结果：' + str;
 
     })
     return num;
 }
 
-let na = '';
 
 export default function LuckDraw() {
     return (

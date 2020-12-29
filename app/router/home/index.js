@@ -16,6 +16,9 @@ router.get('/', async (ctx) => {
         name: 'pm2',
         link: '/cra1/#pm2'
     }, {
+        name: 'refereandhost',
+        link: '/cra1/#refereandhost'
+    }, {
         name: 'css',
         link: '/'
     }, {

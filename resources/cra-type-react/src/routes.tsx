@@ -39,6 +39,13 @@ const LuckDraw = loadable(
     }
 );
 
+const RefereHost = loadable(
+    () => import(/* webpackChunkName: "luckdraw" */ 'src/modules/refereandhost'),
+    {
+        fallback: <Loading />
+    }
+);
+
 const routes = [
     { path: '/react', component: ReactCom },
     { path: '/nodessl', component: NodeSsl, exact: true },
@@ -46,6 +53,7 @@ const routes = [
     { path: '/commonjs', component: Commonjs, exact: true },
     { path: '/pm2', component: Pm2, exact: true },
     { path: '/luckdraw', component: LuckDraw, exact: true },
+    { path: '/refereandhost', component: RefereHost, exact: true },
 ];
 
 export default routes;
